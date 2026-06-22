@@ -434,11 +434,8 @@ img{max-width:100%;display:block}
   .sva-title{font-size:26px}
   .sva-sub{font-size:14px}
   .sva-header{margin-bottom:32px}
-  .sva-cards{flex-direction:column;align-items:center;gap:14px}
-  .sva-card-wrap{width:100%}
-  .sva-card{width:100%;padding:24px 18px;backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.1)}
-  .sva-card-wrap.sva-floating{animation:none!important}
-  .sva-bg-blob{animation:none!important;filter:blur(40px)!important}
+  .sva-logo-pill{width:150px;height:76px;padding:16px 20px}
+  .sva-logo-pill img{max-width:110px;max-height:44px}
   .sva-cta{margin-top:32px}
   /* MÓVEL */
   .movel-section{padding:56px 0}
@@ -470,37 +467,20 @@ img{max-width:100%;display:block}
 }
 
 /* ===== SVA APPS ===== */
-.sva-section{position:relative;background:var(--blue-dark);padding:96px 0;overflow:hidden}
-.sva-bg-blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.14;pointer-events:none}
-.sva-blob-1{width:500px;height:500px;background:var(--teal);top:-120px;right:-100px;animation:svaBlob1 12s ease infinite alternate}
-.sva-blob-2{width:380px;height:380px;background:var(--blue-light);bottom:-80px;left:-80px;animation:svaBlob2 16s ease infinite alternate}
-.sva-blob-3{width:300px;height:300px;background:var(--teal);top:45%;left:42%;animation:svaBlob3 10s ease infinite alternate}
-@keyframes svaBlob1{0%{transform:translate(0,0)}100%{transform:translate(-50px,40px)}}
-@keyframes svaBlob2{0%{transform:translate(0,0)}100%{transform:translate(60px,-50px)}}
-@keyframes svaBlob3{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,20px) scale(1.3)}}
+.sva-section{position:relative;background:var(--blue-dark);padding:80px 0;overflow:hidden}
 .sva-inner{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-.sva-header{text-align:center;margin-bottom:64px}
+.sva-header{text-align:center;margin-bottom:52px}
 .sva-label{display:inline-flex;align-items:center;gap:6px;background:rgba(0,180,216,.15);color:var(--teal);font-size:12px;font-weight:800;padding:6px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;border:1px solid rgba(0,180,216,.3)}
 .sva-title{font-family:'Nunito',sans-serif;font-size:44px;font-weight:900;color:white;line-height:1.1;margin:0 0 16px}
 .sva-sub{font-size:17px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto;line-height:1.7}
-.sva-cards{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
-.sva-card-wrap:nth-child(1).sva-floating{animation:svaFloat1 5s ease-in-out infinite}
-.sva-card-wrap:nth-child(2).sva-floating{animation:svaFloat2 6.5s ease-in-out infinite .5s}
-.sva-card-wrap:nth-child(3).sva-floating{animation:svaFloat3 5.5s ease-in-out infinite .25s}
-@keyframes svaFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes svaFloat2{0%,100%{transform:translateY(-6px)}50%{transform:translateY(8px)}}
-@keyframes svaFloat3{0%,100%{transform:translateY(-4px)}50%{transform:translateY(-16px)}}
-.sva-card{background:rgba(255,255,255,.07);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:40px 28px;width:290px;text-align:center;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease,border-color .3s,box-shadow .3s}
-.sva-card-wrap.sva-floating .sva-card{opacity:1;transform:translateY(0)}
-.sva-card:hover{border-color:rgba(0,180,216,.55);box-shadow:0 0 40px rgba(0,180,216,.2),0 20px 60px rgba(0,0,0,.3)}
-.sva-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,180,216,.12),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.sva-card:hover::before{opacity:1}
-.sva-logo-wrap{background:white;border-radius:16px;padding:16px 20px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;width:160px;height:70px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
-.sva-logo-wrap img{max-width:124px;max-height:46px;width:auto;height:auto;object-fit:contain}
-.sva-card-name{font-size:18px;font-weight:800;color:white;margin-bottom:10px}
-.sva-card-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:20px}
-.sva-card-badge{display:inline-flex;background:rgba(0,180,216,.18);color:var(--teal);font-size:11px;font-weight:800;padding:5px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;border:1px solid rgba(0,180,216,.28)}
-.sva-cta{text-align:center;margin-top:56px}
+.sva-marquee{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);padding:12px 0}
+.sva-marquee-track{display:flex;gap:24px;animation:svaMarch 16s linear infinite}
+.sva-marquee-track:hover{animation-play-state:paused}
+@keyframes svaMarch{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sva-logo-pill{flex:0 0 auto;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 36px;display:flex;align-items:center;justify-content:center;width:200px;height:100px;transition:background .3s,border-color .3s,transform .3s}
+.sva-logo-pill:hover{background:rgba(255,255,255,.16);border-color:rgba(0,180,216,.4);transform:scale(1.05)}
+.sva-logo-pill img{max-width:140px;max-height:56px;width:auto;height:auto;object-fit:contain}
+.sva-cta{text-align:center;margin-top:52px}
 
 /* ===== TELEFONIA MÓVEL ===== */
 .movel-section{background:linear-gradient(135deg,#005ca8 0%,var(--blue-dark) 60%);padding:96px 0;position:relative;overflow:hidden}
@@ -765,41 +745,30 @@ img{max-width:100%;display:block}
 
 <!-- SVA / STREAMING APPS -->
 <section class="sva-section">
-  <div class="sva-bg-blob sva-blob-1"></div>
-  <div class="sva-bg-blob sva-blob-2"></div>
-  <div class="sva-bg-blob sva-blob-3"></div>
   <div class="sva-inner">
     <div class="sva-header reveal">
       <div class="sva-label">Apps inclusos</div>
       <h2 class="sva-title">STREAMING & APPS<br><span style="color:var(--teal)">NO SEU PLANO</span></h2>
       <p class="sva-sub">Streaming premium incluído. Sem taxa extra.</p>
     </div>
-    <div class="sva-cards">
-      <div class="sva-card-wrap">
-        <div class="sva-card">
-          <div class="sva-logo-wrap"><img src="sva-deezer.png" alt="Deezer" loading="lazy"></div>
-          <div class="sva-card-name">Deezer</div>
-          <div class="sva-card-desc">Mais de 90 milhões de músicas, podcasts e playlists sem anúncios direto no seu celular</div>
-          <div class="sva-card-badge">Música</div>
-        </div>
-      </div>
-      <div class="sva-card-wrap">
-        <div class="sva-card">
-          <div class="sva-logo-wrap"><img src="sva-looke.png" alt="Looke" loading="lazy"></div>
-          <div class="sva-card-name">Looke</div>
-          <div class="sva-card-desc">Filmes, séries e conteúdo nacional de qualidade para aproveitar com toda a família</div>
-          <div class="sva-card-badge">Filmes & Séries</div>
-        </div>
-      </div>
-      <div class="sva-card-wrap">
-        <div class="sva-card">
-          <div class="sva-logo-wrap"><img src="sva-max.png" alt="Max Original" loading="lazy"></div>
-          <div class="sva-card-name">Max Original</div>
-          <div class="sva-card-desc">O melhor das produções originais HBO e Warner direto no seu dispositivo preferido</div>
-          <div class="sva-card-badge">Premium</div>
-        </div>
-      </div>
+  </div>
+  <div class="sva-marquee">
+    <div class="sva-marquee-track">
+      <div class="sva-logo-pill"><img src="sva-deezer.png" alt="Deezer" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-looke.png" alt="Looke" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-max.png" alt="Max Original" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-deezer.png" alt="Deezer" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-looke.png" alt="Looke" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-max.png" alt="Max Original" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-deezer.png" alt="Deezer" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-looke.png" alt="Looke" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-max.png" alt="Max Original" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-deezer.png" alt="Deezer" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-looke.png" alt="Looke" loading="lazy"></div>
+      <div class="sva-logo-pill"><img src="sva-max.png" alt="Max Original" loading="lazy"></div>
     </div>
+  </div>
+  <div class="sva-inner">
     <div class="sva-cta reveal">
       <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20contratar%20um%20plano%20da%20Intel%20Fiber%20com%20os%20apps%20inclusos." class="btn-primary" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -1167,10 +1136,6 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 const co=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);co.unobserve(e.target)}})},{threshold:.5});
 document.querySelectorAll('.stat-val').forEach(el=>co.observe(el));
 function animCount(el){const t=+el.dataset.target,d=1800,s=16,steps=d/s;let i=0;const iv=setInterval(()=>{i++;el.textContent=Math.round(t*Math.min(i/steps,1));if(i>=steps)clearInterval(iv)},s)}
-
-// SVA FLOAT
-const svaObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const ws=e.target.querySelectorAll('.sva-card-wrap');ws.forEach((w,i)=>setTimeout(()=>w.classList.add('sva-floating'),i*180));svaObs.unobserve(e.target)}})},{threshold:.15});
-const svaGrid=document.querySelector('.sva-cards');if(svaGrid)svaObs.observe(svaGrid);
 
 // FAQ
 function toggleFaq(item){const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
