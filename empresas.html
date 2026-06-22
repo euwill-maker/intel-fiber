@@ -4,9 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Intel Fiber Empresas — Planos Pessoa Jurídica Rio de Janeiro</title>
-<meta name="description" content="Planos de internet fibra óptica para empresas no Rio de Janeiro. Velocidade e estabilidade para o seu negócio crescer.">
+<meta name="description" content="Planos de internet fibra óptica para empresas no Rio de Janeiro. Velocidade, estabilidade e suporte 24h para o seu negócio.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<meta property="og:title" content="Intel Fiber Empresas — Internet Fibra para Negócios no Rio">
+<meta property="og:description" content="Planos PJ a partir de R$119/mês. Fibra óptica, IP fixo e suporte 24h para sua empresa no Rio de Janeiro.">
+<meta property="og:image" content="https://euwill-maker.github.io/intel-fiber/hero-mobile2.jpg">
+<meta property="og:url" content="https://euwill-maker.github.io/intel-fiber/empresas.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{
   --blue:#0047AB;--blue-dark:#00214F;--blue-mid:#0057CC;
@@ -101,9 +110,16 @@ img{max-width:100%;display:block}
 .btn-back:hover{background:rgba(255,255,255,.2)}
 
 /* FOOTER */
-.footer{background:var(--blue-dark);color:white;padding:40px 32px 24px;text-align:center}
-.footer-name{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;margin-bottom:8px}
-.footer-sub{font-size:13px;color:rgba(255,255,255,.45)}
+.footer{background:var(--blue-dark);color:white;padding:52px 0 28px}
+.footer-inner{max-width:700px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,.45);line-height:1.5}
+.footer-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.footer-btn{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:50px;font-size:13px;font-weight:700;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.18);transition:all .25s}
+.footer-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.footer-btn-ig{background:linear-gradient(135deg,rgba(131,58,180,.35),rgba(253,29,29,.3),rgba(252,176,69,.25))}
+.footer-btn-wa{background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.35)}
+.footer-divider{width:100%;height:1px;background:rgba(255,255,255,.08)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.28)}
 
 /* WHATSAPP FLOAT */
 .whatsapp-float{position:fixed;bottom:28px;right:24px;z-index:9998;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);transition:all .25s;animation:waBounce 3s ease infinite}
@@ -121,21 +137,23 @@ img{max-width:100%;display:block}
 @media(max-width:1024px){.plans-grid{grid-template-columns:repeat(2,1fr)}.plan-card.featured{transform:none}.plan-card.featured:hover{transform:translateY(-6px)}.benefits-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   .nav{height:64px}
-  .nav-inner{padding:0 16px}
+  .nav-inner{padding:0 14px}
+  .nav-logo-img{height:36px!important;max-width:140px!important}
   .nav-logo-tagline{display:none}
-  .nav-logo-name{font-size:20px}
   .nav-link span{display:none}
-  .nav-link{padding:8px}
-  .nav-cta{font-size:12px;padding:8px 18px}
-  .hero{padding:72px 20px 64px}
-  .plans{padding:64px 0}
+  .nav-link{padding:8px;min-width:36px;justify-content:center}
+  .nav-cta{font-size:11px;padding:7px 14px}
+  .hero{padding:60px 20px 52px;margin-top:64px}
+  .hero-sub{font-size:15px}
+  .plans{padding:56px 0}
   .plans-inner{padding:0 20px}
-  .plans-grid{grid-template-columns:1fr;gap:16px}
+  .plans-grid{grid-template-columns:1fr;gap:14px}
   .plan-card.featured{transform:none}
-  .benefits-grid{grid-template-columns:1fr;gap:16px}
+  .benefits-grid{grid-template-columns:1fr;gap:14px}
   .benefits-inner{padding:0 20px}
-  .cta-band-btns{flex-direction:column;align-items:center}
-  .whatsapp-float{bottom:20px;right:16px;width:54px;height:54px}
+  .cta-band-btns{flex-direction:column;align-items:stretch}
+  .whatsapp-float{bottom:18px;right:14px;width:52px;height:52px}
+  .section-title{font-size:26px}
 }
 </style>
 </head>
@@ -302,8 +320,22 @@ img{max-width:100%;display:block}
 
 <!-- FOOTER -->
 <footer class="footer">
-  <img src="logo.png" alt="Intel Fiber" style="height:36px;width:auto;filter:drop-shadow(0 0 6px rgba(0,180,216,.3));margin:0 auto 10px;display:block">
-  <p class="footer-sub">Internet fibra óptica para empresas no Rio de Janeiro · (21) 3048-1714</p>
+  <div class="footer-inner">
+    <img src="logo.png" alt="Intel Fiber" style="height:40px;width:auto">
+    <p class="footer-tagline">Fibra óptica para empresas no Rio de Janeiro.<br>Conexão estável, suporte rápido.</p>
+    <div class="footer-btns">
+      <a href="https://www.instagram.com/intel.fiber/" target="_blank" class="footer-btn footer-btn-ig">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @intel.fiber
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20um%20plano%20empresarial%20Intel%20Fiber." target="_blank" class="footer-btn footer-btn-wa">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        (21) 3048-1714
+      </a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 Intel Fiber · Rio de Janeiro, RJ · Todos os direitos reservados.</p>
+  </div>
 </footer>
 
 <!-- WhatsApp float -->

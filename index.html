@@ -4,14 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Intel Fiber — Internet Fibra Óptica no Rio de Janeiro</title>
-<meta name="description" content="Internet fibra óptica de verdade no Rio de Janeiro. Planos a partir de R$79,90 com TV inclusa e valor fixo garantido.">
+<meta name="description" content="Internet fibra óptica no Rio de Janeiro. Planos a partir de R$99/mês com TV inclusa e valor fixo. Atendemos Centro, Gamboa, Santo Cristo e Praça da Bandeira.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://i.pravatar.cc">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="hero.jpg" media="(min-width:769px)">
-<link rel="preload" as="image" href="hero-mobile.jpg" media="(max-width:768px)">
-<link rel="preload" as="image" href="hero-mobile2.jpg" media="(max-width:768px)">
+<meta property="og:title" content="Intel Fiber — Internet Fibra Óptica no Rio de Janeiro">
+<meta property="og:description" content="Fibra óptica real no Centro do Rio. Planos a partir de R$99/mês com TV inclusa e valor fixo garantido.">
+<meta property="og:image" content="https://euwill-maker.github.io/intel-fiber/hero-mobile2.jpg">
+<meta property="og:url" content="https://euwill-maker.github.io/intel-fiber/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Intel Fiber">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://euwill-maker.github.io/intel-fiber/hero-mobile2.jpg">
+<link rel="preload" as="image" href="hero.webp" media="(min-width:769px)">
+<link rel="preload" as="image" href="hero-mobile2.webp" media="(max-width:768px)">
 <style>
 :root {
   --blue:       #0047AB;
@@ -86,6 +95,8 @@ img{max-width:100%;display:block}
 .hero-carousel{margin-top:132px;position:relative;height:620px;min-height:500px;overflow:hidden}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:flex-end;opacity:0;transition:opacity .8s ease}
 .hero-slide.active{opacity:1}
+#slide1{background-image:image-set(url('hero.webp') type('image/webp'),url('hero.jpg') type('image/jpeg'))}
+#slide2{background-image:image-set(url('hero2.webp') type('image/webp'),url('hero2.jpg') type('image/jpeg'))}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,33,79,.92) 0%,rgba(0,33,79,.75) 40%,rgba(0,33,79,.3) 70%,rgba(0,33,79,.1) 100%),linear-gradient(to top,rgba(0,33,79,.9) 0%,rgba(0,33,79,.5) 40%,transparent 80%)}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px 64px;width:100%}
 .hero-content{max-width:560px}
@@ -227,8 +238,9 @@ img{max-width:100%;display:block}
 .faq{background:var(--gray-bg);padding:80px 0}
 .faq-header{text-align:center;margin-bottom:48px}
 .faq-list{max-width:720px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:white;border-radius:14px;border:1px solid #E2EAF8;overflow:hidden;transition:all .2s}
-.faq-item.open{border-color:var(--blue);box-shadow:0 4px 20px rgba(0,71,171,.08)}
+.faq-item{background:white;border-radius:14px;border:1px solid #E2EAF8;overflow:hidden;transition:all .25s}
+.faq-item:hover{border-color:#C7D9F5;box-shadow:0 2px 12px rgba(0,71,171,.06)}
+.faq-item.open{border-color:var(--blue);box-shadow:0 6px 24px rgba(0,71,171,.1);border-left:3px solid var(--blue)}
 .faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-size:15px;font-weight:700;color:var(--blue-dark);gap:16px}
 .faq-icon{width:24px;height:24px;border-radius:50%;background:var(--blue-pale);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s}
 .faq-item.open .faq-icon{transform:rotate(45deg);background:var(--blue);color:white}
@@ -346,8 +358,8 @@ img{max-width:100%;display:block}
   /* HERO */
   .hero-carousel{margin-top:108px;height:600px;min-height:560px}
   .hero-slide{background-size:cover!important;align-items:flex-end}
-  #slide1{background-image:url('hero-mobile2.jpg')!important;background-position:center 15%!important}
-  #slide2{background-image:url('hero-mobile.jpg')!important;background-position:center 10%!important}
+  #slide1{background-image:image-set(url('hero-mobile2.webp') type('image/webp'),url('hero-mobile2.jpg') type('image/jpeg'))!important;background-position:center 15%!important}
+  #slide2{background-image:image-set(url('hero-mobile.webp') type('image/webp'),url('hero-mobile.jpg') type('image/jpeg'))!important;background-position:center 10%!important}
   .hero-overlay{background:linear-gradient(to top,rgba(0,20,60,.96) 0%,rgba(0,20,60,.75) 35%,rgba(0,20,60,.15) 65%,rgba(0,0,0,0) 100%)!important}
   .hero-inner{padding:0 20px 36px}
   .hero-content{max-width:100%;text-align:center}
@@ -524,6 +536,7 @@ img{max-width:100%;display:block}
 .movel-card.featured .movel-btn{background:var(--teal);border-color:var(--teal)}
 .movel-card.featured .movel-btn:hover{background:#009dc0;border-color:#009dc0}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Intel Fiber","description":"Provedor de internet fibra óptica no Rio de Janeiro. TV inclusa, valor fixo e suporte 24h.","url":"https://euwill-maker.github.io/intel-fiber/","telephone":"+552130481714","priceRange":"R$99-R$219/mês","address":{"@type":"PostalAddress","addressLocality":"Rio de Janeiro","addressRegion":"RJ","addressCountry":"BR"},"areaServed":[{"@type":"City","name":"Centro, Rio de Janeiro"},{"@type":"City","name":"Gamboa, Rio de Janeiro"},{"@type":"City","name":"Santo Cristo, Rio de Janeiro"},{"@type":"City","name":"Praça da Bandeira, Rio de Janeiro"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.instagram.com/intel.fiber/"]}</script>
 </head>
 <body>
 
@@ -563,7 +576,7 @@ img{max-width:100%;display:block}
 
 <!-- HERO -->
 <div class="hero-carousel" id="heroCarousel">
-  <div class="hero-slide active" id="slide1" style="background-image:url('hero.jpg');background-position:60% center;background-size:cover;">
+  <div class="hero-slide active" id="slide1" style="background-position:60% center;background-size:cover;">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-content">
@@ -582,7 +595,7 @@ img{max-width:100%;display:block}
       </div>
     </div>
   </div>
-  <div class="hero-slide" id="slide2" style="background-image:url('hero2.jpg');background-position:center center;background-size:cover;">
+  <div class="hero-slide" id="slide2" style="background-position:center center;background-size:cover;">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-content">
@@ -867,7 +880,10 @@ img{max-width:100%;display:block}
 <!-- ABOUT -->
 <section class="about">
   <div class="about-visual reveal from-left">
-    <img src="team.jpg" alt="Equipe Intel Fiber" loading="lazy">
+    <picture>
+      <source srcset="team.webp" type="image/webp">
+      <img src="team.jpg" alt="Equipe Intel Fiber" loading="lazy">
+    </picture>
   </div>
   <div class="about-right">
     <div class="about-content reveal from-right">
