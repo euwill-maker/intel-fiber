@@ -376,6 +376,88 @@ img{max-width:100%;display:block}
   .countdown-num{font-size:13px}
   .topbar-cta{padding:4px 9px;font-size:10.5px}
 }
+
+/* ===== SVA APPS ===== */
+.sva-section{position:relative;background:var(--blue-dark);padding:96px 0;overflow:hidden}
+.sva-bg-blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.14;pointer-events:none}
+.sva-blob-1{width:500px;height:500px;background:var(--teal);top:-120px;right:-100px;animation:svaBlob1 12s ease infinite alternate}
+.sva-blob-2{width:380px;height:380px;background:var(--blue-light);bottom:-80px;left:-80px;animation:svaBlob2 16s ease infinite alternate}
+.sva-blob-3{width:300px;height:300px;background:var(--teal);top:45%;left:42%;animation:svaBlob3 10s ease infinite alternate}
+@keyframes svaBlob1{0%{transform:translate(0,0)}100%{transform:translate(-50px,40px)}}
+@keyframes svaBlob2{0%{transform:translate(0,0)}100%{transform:translate(60px,-50px)}}
+@keyframes svaBlob3{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,20px) scale(1.3)}}
+.sva-inner{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+.sva-header{text-align:center;margin-bottom:64px}
+.sva-label{display:inline-flex;align-items:center;gap:6px;background:rgba(0,180,216,.15);color:var(--teal);font-size:12px;font-weight:800;padding:6px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;border:1px solid rgba(0,180,216,.3)}
+.sva-title{font-family:'Nunito',sans-serif;font-size:44px;font-weight:900;color:white;line-height:1.1;margin:0 0 16px}
+.sva-sub{font-size:17px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto;line-height:1.7}
+.sva-cards{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.sva-card-wrap:nth-child(1).sva-floating{animation:svaFloat1 5s ease-in-out infinite}
+.sva-card-wrap:nth-child(2).sva-floating{animation:svaFloat2 6.5s ease-in-out infinite .5s}
+.sva-card-wrap:nth-child(3).sva-floating{animation:svaFloat3 5.5s ease-in-out infinite .25s}
+@keyframes svaFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes svaFloat2{0%,100%{transform:translateY(-6px)}50%{transform:translateY(8px)}}
+@keyframes svaFloat3{0%,100%{transform:translateY(-4px)}50%{transform:translateY(-16px)}}
+.sva-card{background:rgba(255,255,255,.07);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:40px 28px;width:290px;text-align:center;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease,border-color .3s,box-shadow .3s}
+.sva-card-wrap.sva-floating .sva-card{opacity:1;transform:translateY(0)}
+.sva-card:hover{border-color:rgba(0,180,216,.55);box-shadow:0 0 40px rgba(0,180,216,.2),0 20px 60px rgba(0,0,0,.3)}
+.sva-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,180,216,.12),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.sva-card:hover::before{opacity:1}
+.sva-logo-wrap{background:white;border-radius:16px;padding:16px 20px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;width:160px;height:70px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.sva-logo-wrap img{max-width:124px;max-height:46px;width:auto;height:auto;object-fit:contain}
+.sva-card-name{font-size:18px;font-weight:800;color:white;margin-bottom:10px}
+.sva-card-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:20px}
+.sva-card-badge{display:inline-flex;background:rgba(0,180,216,.18);color:var(--teal);font-size:11px;font-weight:800;padding:5px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;border:1px solid rgba(0,180,216,.28)}
+.sva-cta{text-align:center;margin-top:56px}
+
+/* ===== TELEFONIA MÓVEL ===== */
+.movel-section{background:linear-gradient(135deg,#005ca8 0%,var(--blue-dark) 60%);padding:96px 0;position:relative;overflow:hidden}
+.movel-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(0,180,216,.15) 0%,transparent 55%),radial-gradient(ellipse at 85% 20%,rgba(0,71,171,.3) 0%,transparent 50%);pointer-events:none}
+.movel-inner{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+.movel-header{text-align:center;margin-bottom:56px}
+.movel-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,180,216,.15);color:var(--teal);font-size:12px;font-weight:800;padding:7px 18px;border-radius:50px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;border:1px solid rgba(0,180,216,.3)}
+.movel-title{font-family:'Nunito',sans-serif;font-size:42px;font-weight:900;color:white;line-height:1.1;margin:0 0 14px}
+.movel-sub{font-size:17px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.7}
+.movel-cards{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.movel-card{background:rgba(255,255,255,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:36px 28px;text-align:center;width:300px;transition:all .3s;position:relative}
+.movel-card:hover{background:rgba(255,255,255,.13);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.movel-card.featured{border-color:rgba(0,180,216,.5);box-shadow:0 0 30px rgba(0,180,216,.15);padding-top:52px}
+.movel-card-icon{width:60px;height:60px;border-radius:50%;background:rgba(0,180,216,.15);border:1px solid rgba(0,180,216,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--teal)}
+.movel-card.featured .movel-card-icon{background:rgba(0,180,216,.25);border-color:rgba(0,180,216,.6)}
+.movel-data{font-family:'Nunito',sans-serif;font-size:52px;font-weight:900;color:white;line-height:1;margin-bottom:4px}
+.movel-data sup{font-size:26px;vertical-align:top;line-height:1.5}
+.movel-data-label{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px;font-weight:600;line-height:1.4}
+.movel-features{list-style:none;text-align:left;display:flex;flex-direction:column;gap:9px;margin-bottom:28px}
+.movel-features li{font-size:13px;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:9px;line-height:1.4}
+.movel-features li::before{content:'';width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--teal);margin-top:5px}
+.movel-price{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;color:white;margin-bottom:2px}
+.movel-price span{font-size:16px}
+.movel-price-note{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:24px}
+.movel-pop-tag{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--teal);color:white;font-size:11px;font-weight:800;padding:6px 20px;border-radius:0 0 14px 14px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.movel-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);font-size:14px;font-weight:800;padding:13px 20px;border-radius:50px;text-decoration:none;transition:all .2s;width:100%}
+.movel-btn:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+.movel-card.featured .movel-btn{background:var(--teal);border-color:var(--teal)}
+.movel-card.featured .movel-btn:hover{background:#009dc0;border-color:#009dc0}
+@media(max-width:768px){
+  .sva-section{padding:64px 0}
+  .sva-inner{padding:0 20px}
+  .sva-title{font-size:28px}
+  .sva-sub{font-size:15px}
+  .sva-header{margin-bottom:40px}
+  .sva-cards{flex-direction:column;align-items:center;gap:16px}
+  .sva-card-wrap{width:100%}
+  .sva-card{width:100%;padding:28px 20px}
+  .sva-card-wrap.sva-floating{animation:none!important}
+  .sva-cta{margin-top:40px}
+  .movel-section{padding:64px 0}
+  .movel-inner{padding:0 20px}
+  .movel-title{font-size:28px}
+  .movel-sub{font-size:15px}
+  .movel-header{margin-bottom:36px}
+  .movel-cards{flex-direction:column;align-items:center;gap:20px}
+  .movel-card{width:100%;max-width:100%}
+  .movel-data{font-size:48px}
+}
 </style>
 </head>
 <body>
@@ -404,9 +486,13 @@ img{max-width:100%;display:block}
       </div>
     </a>
     <div class="nav-actions">
-      <a href="#" class="nav-central">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span>Minha Conta</span>
+      <a href="#movel" class="nav-central">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/></svg>
+        <span>Móvel</span>
+      </a>
+      <a href="empresas.html" class="nav-central">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        <span>Empresas</span>
       </a>
       <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20contratar%20um%20plano%20Intel%20Fiber." class="nav-cta" target="_blank">Quero Assinar</a>
     </div>
@@ -606,6 +692,120 @@ img{max-width:100%;display:block}
       <div class="plan-price">R$219<span style="font-size:22px">,00</span></div>
       <div class="plan-price-note">Valor fixo / mês</div>
       <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20o%20plano%20PREMIUM%20800MB%20da%20Intel%20Fiber." class="btn-plan" target="_blank">Quero esse plano</a>
+    </div>
+  </div>
+</section>
+
+<!-- SVA / STREAMING APPS -->
+<section class="sva-section">
+  <div class="sva-bg-blob sva-blob-1"></div>
+  <div class="sva-bg-blob sva-blob-2"></div>
+  <div class="sva-bg-blob sva-blob-3"></div>
+  <div class="sva-inner">
+    <div class="sva-header reveal">
+      <div class="sva-label">Apps inclusos</div>
+      <h2 class="sva-title">STREAMING & APPS<br><span style="color:var(--teal)">NO SEU PLANO</span></h2>
+      <p class="sva-sub">Contrate a Intel Fiber e ganhe acesso a plataformas de entretenimento premium sem custo extra na sua assinatura.</p>
+    </div>
+    <div class="sva-cards">
+      <div class="sva-card-wrap">
+        <div class="sva-card">
+          <div class="sva-logo-wrap"><img src="sva-deezer.png" alt="Deezer" loading="lazy"></div>
+          <div class="sva-card-name">Deezer</div>
+          <div class="sva-card-desc">Mais de 90 milhões de músicas, podcasts e playlists sem anúncios direto no seu celular</div>
+          <div class="sva-card-badge">Música</div>
+        </div>
+      </div>
+      <div class="sva-card-wrap">
+        <div class="sva-card">
+          <div class="sva-logo-wrap"><img src="sva-looke.png" alt="Looke" loading="lazy"></div>
+          <div class="sva-card-name">Looke</div>
+          <div class="sva-card-desc">Filmes, séries e conteúdo nacional de qualidade para aproveitar com toda a família</div>
+          <div class="sva-card-badge">Filmes & Séries</div>
+        </div>
+      </div>
+      <div class="sva-card-wrap">
+        <div class="sva-card">
+          <div class="sva-logo-wrap"><img src="sva-max.png" alt="Max Original" loading="lazy"></div>
+          <div class="sva-card-name">Max Original</div>
+          <div class="sva-card-desc">O melhor das produções originais HBO e Warner direto no seu dispositivo preferido</div>
+          <div class="sva-card-badge">Premium</div>
+        </div>
+      </div>
+    </div>
+    <div class="sva-cta reveal">
+      <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20contratar%20um%20plano%20da%20Intel%20Fiber%20com%20os%20apps%20inclusos." class="btn-primary" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Quero os apps inclusos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TELEFONIA MÓVEL -->
+<section class="movel-section" id="movel">
+  <div class="movel-inner">
+    <div class="movel-header reveal">
+      <div class="movel-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3"/></svg>
+        Telefonia Móvel
+      </div>
+      <h2 class="movel-title">INTERNET MÓVEL<br><span style="color:var(--teal)">INTEL FIBER</span></h2>
+      <p class="movel-sub">Conectividade total onde você estiver. WhatsApp ilimitado, Waze e muito mais incluso em todos os planos.</p>
+    </div>
+    <div class="movel-cards">
+      <div class="movel-card reveal reveal-delay-1">
+        <div class="movel-card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3"/></svg>
+        </div>
+        <div class="movel-data">15<sup>GB</sup></div>
+        <div class="movel-data-label">10GB + 5GB YouTube + 5GB Portabilidade</div>
+        <ul class="movel-features">
+          <li>WhatsApp ilimitado (fotos, áudios e vídeos)</li>
+          <li>Ligações e SMS para qualquer operadora</li>
+          <li>Bônus 1GB recarga digital por 7 dias</li>
+          <li>App INTELPLAY de streaming incluso</li>
+          <li>Waze e Moovit sem descontar do plano</li>
+        </ul>
+        <div class="movel-price">R$44<span>,90</span></div>
+        <div class="movel-price-note">/mês</div>
+        <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20o%20plano%20móvel%2015GB%20da%20Intel%20Fiber%20por%20R$44,90." class="movel-btn" target="_blank">Quero esse plano</a>
+      </div>
+      <div class="movel-card featured reveal reveal-delay-2">
+        <div class="movel-pop-tag">Mais Popular</div>
+        <div class="movel-card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3"/></svg>
+        </div>
+        <div class="movel-data">20<sup>GB</sup></div>
+        <div class="movel-data-label">20GB + 5GB Portabilidade</div>
+        <ul class="movel-features">
+          <li>WhatsApp ilimitado (fotos, áudios e vídeos)</li>
+          <li>Ligações e SMS para qualquer operadora</li>
+          <li>Bônus 1GB recarga digital por 7 dias</li>
+          <li>App INTELPLAY de streaming incluso</li>
+          <li>Waze e Moovit sem descontar do plano</li>
+        </ul>
+        <div class="movel-price">R$59<span>,90</span></div>
+        <div class="movel-price-note">/mês</div>
+        <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20o%20plano%20móvel%2020GB%20da%20Intel%20Fiber%20por%20R$59,90." class="movel-btn" target="_blank">Quero esse plano</a>
+      </div>
+      <div class="movel-card reveal reveal-delay-3">
+        <div class="movel-card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3"/></svg>
+        </div>
+        <div class="movel-data">25<sup>GB</sup></div>
+        <div class="movel-data-label">25GB + 5GB Portabilidade</div>
+        <ul class="movel-features">
+          <li>WhatsApp ilimitado (fotos, áudios e vídeos)</li>
+          <li>Ligações e SMS para qualquer operadora</li>
+          <li>Bônus 1GB recarga digital por 7 dias</li>
+          <li>App INTELPLAY de streaming incluso</li>
+          <li>Waze e Moovit sem descontar do plano</li>
+        </ul>
+        <div class="movel-price">R$69<span>,90</span></div>
+        <div class="movel-price-note">/mês</div>
+        <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20o%20plano%20móvel%2025GB%20da%20Intel%20Fiber%20por%20R$69,90." class="movel-btn" target="_blank">Quero esse plano</a>
+      </div>
     </div>
   </div>
 </section>
@@ -836,6 +1036,10 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 const co=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);co.unobserve(e.target)}})},{threshold:.5});
 document.querySelectorAll('.stat-val').forEach(el=>co.observe(el));
 function animCount(el){const t=+el.dataset.target,d=1800,s=16,steps=d/s;let i=0;const iv=setInterval(()=>{i++;el.textContent=Math.round(t*Math.min(i/steps,1));if(i>=steps)clearInterval(iv)},s)}
+
+// SVA FLOAT
+const svaObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const ws=e.target.querySelectorAll('.sva-card-wrap');ws.forEach((w,i)=>setTimeout(()=>w.classList.add('sva-floating'),i*180));svaObs.unobserve(e.target)}})},{threshold:.15});
+const svaGrid=document.querySelector('.sva-cards');if(svaGrid)svaObs.observe(svaGrid);
 
 // FAQ
 function toggleFaq(item){const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
