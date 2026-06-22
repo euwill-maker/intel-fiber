@@ -328,6 +328,30 @@ img{max-width:100%;display:block}
 .via-wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:white;padding:13px 18px;border-radius:12px;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;cursor:pointer;border:none;width:100%;margin-top:4px;transition:all .2s;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.35)}
 .via-wa-btn:hover{background:#1db954;transform:translateY(-2px)}
 
+/* ===== TRABALHE CONOSCO ===== */
+.jobs-section{background:#F4F7FB;padding:96px 0}
+.jobs-inner{max-width:860px;margin:0 auto;padding:0 32px}
+.jobs-header{text-align:center;margin-bottom:52px}
+.jobs-title{font-family:'Nunito',sans-serif;font-size:44px;font-weight:900;color:var(--blue-dark);line-height:1.1;margin:0 0 14px}
+.jobs-sub{font-size:17px;color:#6B7280;line-height:1.7}
+.jobs-form-card{background:white;border-radius:24px;padding:40px 48px;box-shadow:0 4px 32px rgba(0,71,171,.08);border:1px solid #E2EAF8}
+.jobs-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.jobs-field{display:flex;flex-direction:column;gap:7px}
+.jobs-field.full{grid-column:1/-1}
+.jobs-field label{font-size:12px;font-weight:800;color:#374151;text-transform:uppercase;letter-spacing:.4px}
+.jobs-field input,.jobs-field select,.jobs-field textarea{border:1.5px solid #E2EAF8;border-radius:10px;padding:13px 16px;font-family:'Nunito',sans-serif;font-size:14px;color:#111827;transition:border-color .25s,box-shadow .25s;outline:none;background:#FAFBFD;appearance:none}
+.jobs-field input:focus,.jobs-field select:focus,.jobs-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,71,171,.08);background:white}
+.jobs-field textarea{resize:vertical;min-height:100px}
+.jobs-select-wrap{position:relative}
+.jobs-select-wrap select{width:100%}
+.jobs-select-wrap::after{content:'';position:absolute;right:14px;top:50%;transform:translateY(-50%);border:5px solid transparent;border-top-color:#6B7280;pointer-events:none}
+.jobs-submit{margin-top:28px;text-align:center}
+.jobs-note{margin-top:14px;font-size:13px;color:#9CA3AF;text-align:center;line-height:1.6}
+.jobs-success{display:none;text-align:center;padding:32px;background:#F0FDF4;border-radius:16px;border:1.5px solid #86EFAC}
+.jobs-success-icon{font-size:40px;margin-bottom:12px}
+.jobs-success h3{font-size:20px;font-weight:800;color:#15803D;margin:0 0 8px}
+.jobs-success p{color:#166534;font-size:14px;line-height:1.6;margin:0}
+
 /* MOBILE */
 @media(max-width:1024px){
   .plans-grid{grid-template-columns:repeat(2,1fr);gap:16px}
@@ -416,6 +440,13 @@ img{max-width:100%;display:block}
   .faq{padding:56px 0}
   .faq-header{padding:0 20px;margin-bottom:28px}
   .faq-list{padding:0 20px}
+  /* TRABALHE CONOSCO */
+  .jobs-section{padding:56px 0}
+  .jobs-inner{padding:0 20px}
+  .jobs-title{font-size:28px}
+  .jobs-form-card{padding:24px 20px;border-radius:18px}
+  .jobs-row{grid-template-columns:1fr;gap:16px}
+  .jobs-field.full{grid-column:1}
   /* FOOTER */
   .footer{padding:40px 0 24px}
   .footer-inner{padding:0 20px}
@@ -1053,6 +1084,69 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- TRABALHE CONOSCO -->
+<section class="jobs-section" id="vagas">
+  <div class="jobs-inner">
+    <div class="jobs-header reveal">
+      <div class="sva-label" style="background:rgba(0,71,171,.08);color:var(--blue);border-color:rgba(0,71,171,.2)">Faça parte do time</div>
+      <h2 class="jobs-title">TRABALHE<br><span style="color:var(--blue)">CONOSCO</span></h2>
+      <p class="jobs-sub">Crescendo junto com o Rio. Venha fazer parte da Intel Fiber.</p>
+    </div>
+    <div class="jobs-form-card reveal reveal-delay-1">
+      <form id="jobsForm" onsubmit="enviarCandidatura(event)">
+        <div class="jobs-row">
+          <div class="jobs-field">
+            <label for="jobNome">Nome completo *</label>
+            <input type="text" id="jobNome" required placeholder="Seu nome">
+          </div>
+          <div class="jobs-field">
+            <label for="jobTel">WhatsApp *</label>
+            <input type="tel" id="jobTel" required placeholder="(21) 99999-9999">
+          </div>
+        </div>
+        <div class="jobs-row">
+          <div class="jobs-field">
+            <label for="jobEmail">E-mail *</label>
+            <input type="email" id="jobEmail" required placeholder="seu@email.com">
+          </div>
+          <div class="jobs-field">
+            <label for="jobCargo">Área de interesse *</label>
+            <div class="jobs-select-wrap">
+              <select id="jobCargo" required>
+                <option value="">Selecione...</option>
+                <option>Técnico de fibra óptica</option>
+                <option>Atendimento ao cliente</option>
+                <option>Comercial / Vendas</option>
+                <option>TI / Suporte técnico</option>
+                <option>Administrativo</option>
+                <option>Outra área</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="jobs-row">
+          <div class="jobs-field full">
+            <label for="jobMsg">Fale um pouco sobre você</label>
+            <textarea id="jobMsg" placeholder="Sua experiência, disponibilidade de horário..."></textarea>
+          </div>
+        </div>
+        <div class="jobs-submit">
+          <button type="submit" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            Enviar candidatura
+          </button>
+        </div>
+        <p class="jobs-note">Após enviar, seu e-mail será aberto para anexar o currículo. Respondemos em até 3 dias úteis.</p>
+      </form>
+      <div class="jobs-success" id="jobsSuccess">
+        <div class="jobs-success-icon">✅</div>
+        <h3>Candidatura enviada!</h3>
+        <p>Obrigado pelo interesse. Analisaremos seu perfil e entraremos em contato em breve pelo WhatsApp informado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -1204,6 +1298,21 @@ function scrollChat(){const e=document.getElementById('viaMsgs');setTimeout(()=>
   window.addEventListener('resize',()=>goTo(cur));
   start();
 })();
+
+/* TRABALHE CONOSCO */
+function enviarCandidatura(e){
+  e.preventDefault();
+  const nome=document.getElementById('jobNome').value.trim();
+  const tel=document.getElementById('jobTel').value.trim();
+  const email=document.getElementById('jobEmail').value.trim();
+  const cargo=document.getElementById('jobCargo').value;
+  const msg=document.getElementById('jobMsg').value.trim();
+  const subject=encodeURIComponent('Candidatura — '+cargo+' — '+nome);
+  const body=encodeURIComponent('Nome: '+nome+'\nWhatsApp: '+tel+'\nE-mail: '+email+'\nÁrea: '+cargo+(msg?'\n\nSobre mim:\n'+msg:'')+'\n\n---\nAnexe seu currículo a este e-mail.');
+  document.getElementById('jobsForm').style.display='none';
+  document.getElementById('jobsSuccess').style.display='block';
+  setTimeout(()=>{window.location.href='mailto:d.pessoal@intelfiber.com.br?subject='+subject+'&body='+body},400);
+}
 </script>
 </body>
 </html>
