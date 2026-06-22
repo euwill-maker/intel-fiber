@@ -6,7 +6,12 @@
 <title>Intel Fiber — Internet Fibra Óptica no Rio de Janeiro</title>
 <meta name="description" content="Internet fibra óptica de verdade no Rio de Janeiro. Planos a partir de R$79,90 com TV inclusa e valor fixo garantido.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://i.pravatar.cc">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="hero.jpg" media="(min-width:769px)">
+<link rel="preload" as="image" href="hero-mobile.jpg" media="(max-width:768px)">
+<link rel="preload" as="image" href="hero-mobile2.jpg" media="(max-width:768px)">
 <style>
 :root {
   --blue:       #0047AB;
@@ -66,7 +71,7 @@ img{max-width:100%;display:block}
 .nav{position:fixed;top:52px;left:0;right:0;z-index:100;background:var(--blue-dark);height:80px;display:flex;align-items:center;box-shadow:0 2px 24px rgba(0,0,0,.3)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:12px}
-.nav-logo-img{height:46px;width:auto;max-width:200px;filter:drop-shadow(0 0 8px rgba(0,180,216,.35));transition:transform .3s}
+.nav-logo-img{height:46px;width:auto;max-width:200px;transition:transform .3s}
 .nav-logo:hover .nav-logo-img{transform:scale(1.04)}
 .nav-logo-text{display:flex;flex-direction:column}
 .nav-logo-name{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:white;letter-spacing:-.5px;line-height:1}
@@ -201,17 +206,22 @@ img{max-width:100%;display:block}
 
 /* DEPOIMENTOS */
 .depoimentos{background:white;padding:80px 0}
-.depoimentos-header{text-align:center;margin-bottom:48px}
-.depoimentos-grid{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.depo-card{background:var(--gray-bg);border-radius:20px;padding:32px 28px;position:relative;border:1px solid #E8EEF8;transition:all .3s}
-.depo-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,71,171,.1);border-color:#C7D9F5}
-.depo-quote{font-size:56px;font-weight:900;color:var(--blue-pale);line-height:.8;margin-bottom:12px;font-family:'Nunito',sans-serif}
-.depo-text{font-size:15px;color:#5A6A88;line-height:1.7;margin-bottom:16px}
-.depo-stars{color:var(--teal);font-size:18px;letter-spacing:2px;margin-bottom:20px}
+.depoimentos-header{text-align:center;margin-bottom:48px;padding:0 20px}
+.depo-carousel-wrap{max-width:1100px;margin:0 auto;padding:0 32px;overflow:hidden}
+.depo-track{display:flex;gap:24px;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.depo-card{flex:0 0 calc((100% - 48px) / 3);background:var(--gray-bg);border-radius:20px;padding:28px 24px;border:1px solid #E8EEF8;transition:box-shadow .3s,border-color .3s}
+.depo-card:hover{box-shadow:0 12px 36px rgba(0,71,171,.1);border-color:#C7D9F5}
+.depo-quote{font-size:48px;font-weight:900;color:var(--blue-pale);line-height:.8;margin-bottom:10px;font-family:'Nunito',sans-serif}
+.depo-text{font-size:14px;color:#5A6A88;line-height:1.65;margin-bottom:14px}
+.depo-stars{color:var(--teal);font-size:16px;letter-spacing:2px;margin-bottom:18px}
 .depo-author{display:flex;align-items:center;gap:12px}
-.depo-avatar{width:40px;height:40px;border-radius:50%;background:var(--blue);color:white;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center}
-.depo-name{font-size:14px;font-weight:800;color:var(--blue-dark)}
-.depo-city{font-size:12px;color:#94a3b8}
+.depo-avatar{width:44px;height:44px;min-width:44px;border-radius:50%;overflow:hidden;border:2px solid var(--blue-pale);background:var(--blue)}
+.depo-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.depo-name{font-size:13px;font-weight:800;color:var(--blue-dark)}
+.depo-city{font-size:11px;color:#94a3b8;margin-top:2px}
+.depo-dots{display:flex;justify-content:center;gap:7px;margin-top:28px}
+.depo-dot{width:8px;height:8px;border-radius:50%;background:#D1E0F8;border:none;cursor:pointer;padding:0;transition:all .3s}
+.depo-dot.active{background:var(--blue);width:22px;border-radius:4px}
 
 /* FAQ */
 .faq{background:var(--gray-bg);padding:80px 0}
@@ -227,18 +237,19 @@ img{max-width:100%;display:block}
 .faq-answer-inner{padding:0 24px 20px;font-size:14px;color:#5A6A88;line-height:1.7}
 
 /* FOOTER */
-.footer{background:var(--blue-dark);color:white;padding:48px 0 28px}
-.footer-inner{max-width:1200px;margin:0 auto;padding:0 32px}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:36px;flex-wrap:wrap}
-.footer-brand{max-width:320px}
-.footer-logo-name{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;margin-bottom:8px}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
-.footer-links h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.5);margin-bottom:14px}
-.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-links li a{font-size:14px;color:rgba(255,255,255,.7);transition:color .2s}
-.footer-links li a:hover{color:var(--teal)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.footer-copy{font-size:13px;color:rgba(255,255,255,.4)}
+.footer{background:var(--blue-dark);color:white;padding:52px 0 28px}
+.footer-inner{max-width:700px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.footer-logo-wrap{opacity:.95}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,.45);line-height:1.5}
+.footer-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.footer-btn{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:50px;font-size:13px;font-weight:700;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.18);transition:all .25s}
+.footer-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.footer-btn-ig{background:linear-gradient(135deg,rgba(131,58,180,.35),rgba(253,29,29,.3),rgba(252,176,69,.25));border-color:rgba(255,255,255,.1)}
+.footer-btn-ig:hover{background:linear-gradient(135deg,rgba(131,58,180,.55),rgba(253,29,29,.45),rgba(252,176,69,.4))}
+.footer-btn-wa{background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.35)}
+.footer-btn-wa:hover{background:rgba(37,211,102,.28);border-color:rgba(37,211,102,.6)}
+.footer-divider{width:100%;height:1px;background:rgba(255,255,255,.08);margin:4px 0}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.28);text-align:center}
 
 /* WHATSAPP FLOAT */
 .whatsapp-float{position:fixed;bottom:28px;right:24px;z-index:9998;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5);transition:all .25s;animation:waBounce 3s ease infinite}
@@ -309,78 +320,142 @@ img{max-width:100%;display:block}
 @media(max-width:1024px){
   .plans-grid{grid-template-columns:repeat(2,1fr);gap:16px}
   .plan-card.featured{transform:scale(1)}
-  .depoimentos-grid{grid-template-columns:1fr 1fr;gap:20px}
 }
 @media(max-width:768px){
+  /* TOPBAR */
   .topbar{gap:6px;height:44px;padding:0 10px;justify-content:space-between}
   .topbar-text{display:none}
-  .topbar-text-mobile{display:flex;align-items:center;font-size:11.5px;font-weight:700;color:white;white-space:nowrap;gap:4px;flex-shrink:1;min-width:0}
-  .topbar-text-mobile .fire{animation:fireShake .6s ease infinite;display:inline-block;font-size:14px}
+  .topbar::before{animation:none}
+  .topbar::after{animation:none}
+  .topbar-text-mobile{display:flex;align-items:center;font-size:11px;font-weight:700;color:white;white-space:nowrap;gap:4px;flex-shrink:1;min-width:0}
+  .topbar-text-mobile .fire{animation:fireShake .6s ease infinite;display:inline-block;font-size:13px}
   .topbar-countdown{gap:2px}
   .countdown-block{min-width:28px;padding:2px 5px;border-radius:5px}
   .countdown-num{font-size:14px}
   .countdown-label{font-size:7px}
   .countdown-sep{font-size:14px;margin-bottom:3px}
-  .topbar-cta{font-size:11px;padding:5px 11px;letter-spacing:0;flex-shrink:0}
+  .topbar-cta{font-size:11px;padding:5px 10px;letter-spacing:0;flex-shrink:0}
+  /* NAV */
   .nav{height:64px;top:44px}
-  .nav-inner{padding:0 16px}
+  .nav-inner{padding:0 14px}
+  .nav-actions{gap:6px}
   .nav-central span{display:none}
-  .nav-central{padding:8px}
-  .nav-logo-img{height:36px;max-width:150px}
-  .nav-cta{font-size:12px;padding:8px 18px}
-  .hero-carousel{margin-top:108px;height:600px;min-height:520px}
-  .hero-slide{background-position:center 25%!important;align-items:flex-end}
-  #slide2{background-position:center center!important}
-  .hero-overlay{background:linear-gradient(to top,rgba(0,33,79,.97) 0%,rgba(0,33,79,.88) 35%,rgba(0,33,79,.45) 65%,rgba(0,33,79,.08) 100%)!important}
-  .hero-inner{padding:0 20px 36px}
+  .nav-central{padding:8px;min-width:36px;justify-content:center}
+  .nav-logo-img{height:40px;max-width:160px}
+  .nav-cta{font-size:11px;padding:7px 14px;letter-spacing:0}
+  /* HERO */
+  .hero-carousel{margin-top:108px;height:540px;min-height:480px}
+  .hero-slide{background-size:cover!important;align-items:flex-end}
+  #slide1{background-image:url('hero-mobile2.jpg')!important;background-position:center 20%!important}
+  #slide2{background-image:url('hero-mobile.jpg')!important;background-position:center 15%!important}
+  .hero-overlay{background:linear-gradient(to top,rgba(0,33,79,.97) 0%,rgba(0,33,79,.85) 40%,rgba(0,33,79,.4) 70%,rgba(0,33,79,.05) 100%)!important}
+  .hero-inner{padding:0 20px 32px}
   .hero-content{max-width:100%;text-align:center}
-  .hero-title{font-size:32px;margin-bottom:14px}
-  .hero-sub{font-size:15px;margin-bottom:28px;max-width:100%}
-  .hero-btns{flex-direction:column;align-items:center;gap:12px}
-  .btn-primary,.btn-outline{width:100%;justify-content:center;font-size:15px;padding:16px 24px}
-  .hero-dots{bottom:20px}
-  .combo-bar-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px 0;padding:14px 16px;height:auto}
+  .hero-badge{font-size:11px;padding:5px 12px;margin-bottom:12px}
+  .hero-title{font-size:28px;margin-bottom:12px}
+  .hero-sub{font-size:14px;margin-bottom:22px;max-width:100%}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:10px}
+  .btn-primary,.btn-outline{width:100%;justify-content:center;font-size:14px;padding:14px 20px}
+  .hero-dots{bottom:14px}
+  /* COMBO BAR */
+  .combo-bar-inner{display:grid;grid-template-columns:1fr 1fr;gap:6px 0;padding:10px 16px;height:auto}
   .combo-divider{display:none}
-  .combo-item{font-size:11px;padding:6px 8px;justify-content:flex-start}
-  .stats-grid{grid-template-columns:1fr 1fr;gap:0;padding:0 16px}
-  .stat-item{padding:24px 16px;border-right:1px solid #E0E8F5;border-bottom:1px solid #E0E8F5}
+  .combo-item{font-size:11px;padding:5px 8px;justify-content:flex-start;gap:7px}
+  /* VIA SECTION */
+  .via-section{padding:44px 0}
+  .via-section-inner{padding:0 20px}
+  .btn-via{font-size:14px;padding:14px 28px;width:100%}
+  /* STATS */
+  .stats{padding:44px 0}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:0;padding:0}
+  .stat-item{padding:20px 16px;border-right:1px solid #E0E8F5;border-bottom:1px solid #E0E8F5}
   .stat-item:nth-child(2){border-right:none}
-  .stat-item:nth-child(3){border-bottom:none;border-right:1px solid #E0E8F5;grid-column:1/-1;border-right:none}
-  .stat-number{font-size:44px}
-  .plans-grid{grid-template-columns:1fr;gap:16px;padding:0 20px}
+  .stat-item:nth-child(3){border-right:1px solid #E0E8F5;border-bottom:none}
+  .stat-item:nth-child(4){border-right:none;border-bottom:none}
+  .stat-number{font-size:40px}
+  .stat-suffix{font-size:24px}
+  /* PLANS */
+  .plans{padding:56px 0}
+  .plans-header{padding:0 20px;margin-bottom:28px}
+  .plans-grid{grid-template-columns:1fr;gap:14px;padding:0 20px;max-width:100%}
   .plan-card.featured{transform:none}
-  .plan-speed{font-size:44px}
+  .plan-speed{font-size:42px}
+  .plan-card{padding:24px 20px 20px}
+  /* ABOUT */
   .about{flex-direction:column}
-  .about-visual{min-height:260px;flex:none}
-  .about-right{padding:36px 20px;border-left:none;border-top:1px solid #E8EEF8}
+  .about-visual{min-height:220px;flex:none;width:100%}
+  .about-right{padding:28px 20px;border-left:none;border-top:1px solid #E8EEF8}
   .about-content{max-width:100%}
-  .cobertura-inner{flex-direction:column;gap:36px}
-  .cobertura-map{flex:none;width:100%;height:220px}
-  .cidades-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .depoimentos-grid{grid-template-columns:1fr;gap:16px;padding:0 20px}
+  .about-title{font-size:22px}
+  .about-text{font-size:14px}
+  /* COBERTURA */
+  .cobertura{padding:56px 0}
+  .cobertura-inner{flex-direction:column;gap:28px}
+  .cobertura-text{padding:0 20px}
+  .cobertura-map{flex:none;width:100%;height:240px}
+  .cidades-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .cov-label{font-size:10px;padding:3px 6px}
+  /* DEPOIMENTOS */
+  .depoimentos{padding:56px 0}
+  .depoimentos-header{padding:0 20px;margin-bottom:28px}
+  .depo-carousel-wrap{padding:0 20px}
+  .depo-card{flex:0 0 100%}
+  .depo-text{font-size:14px}
+  /* FAQ */
+  .faq{padding:56px 0}
+  .faq-header{padding:0 20px;margin-bottom:28px}
   .faq-list{padding:0 20px}
-  .footer-top{flex-direction:column;gap:28px}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .whatsapp-float{bottom:20px;right:16px;width:54px;height:54px}
+  /* FOOTER */
+  .footer{padding:40px 0 24px}
+  .footer-inner{padding:0 20px}
+  .footer-btns{gap:10px}
+  .footer-btn{font-size:12px;padding:10px 16px}
+  /* WHATSAPP */
+  .whatsapp-float{bottom:18px;right:14px;width:52px;height:52px}
+  .whatsapp-float svg{width:26px;height:26px}
+  /* VIA MODAL */
   .via-overlay{padding:0;align-items:flex-end}
   .via-modal{max-width:100%;border-radius:20px 20px 0 0;max-height:92vh}
   .via-messages{max-height:52vh;min-height:220px}
-  .via-section{padding:48px 0}
-  .btn-via{font-size:15px;padding:15px 32px}
-  .plans-header{padding:0 20px}
-  .depoimentos-header,.faq-header{padding:0 20px}
-  .cobertura-text{padding:0 20px}
+  /* SVA */
+  .sva-section{padding:56px 0}
+  .sva-inner{padding:0 20px}
+  .sva-title{font-size:26px}
+  .sva-sub{font-size:14px}
+  .sva-header{margin-bottom:32px}
+  .sva-cards{flex-direction:column;align-items:center;gap:14px}
+  .sva-card-wrap{width:100%}
+  .sva-card{width:100%;padding:24px 18px;backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.1)}
+  .sva-card-wrap.sva-floating{animation:none!important}
+  .sva-bg-blob{animation:none!important;filter:blur(40px)!important}
+  .sva-cta{margin-top:32px}
+  /* MÓVEL */
+  .movel-section{padding:56px 0}
+  .movel-inner{padding:0 20px}
+  .movel-title{font-size:26px}
+  .movel-sub{font-size:14px}
+  .movel-header{margin-bottom:28px}
+  .movel-cards{flex-direction:column;align-items:center;gap:14px}
+  .movel-card{width:100%;max-width:100%;backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.1)}
+  .movel-data{font-size:44px}
+  /* SECTION TITLES */
+  .section-title{font-size:26px}
 }
 @media(max-width:400px){
-  .hero-title{font-size:28px}
-  .cidades-grid{grid-template-columns:1fr}
+  .hero-title{font-size:24px}
+  .nav-logo-img{height:36px;max-width:140px}
+  .topbar-cta{padding:4px 8px;font-size:10px}
+  .countdown-block{min-width:24px;padding:1px 4px}
+  .countdown-num{font-size:13px}
+  .topbar-countdown{gap:1px}
   .stats-grid{grid-template-columns:1fr}
   .stat-item{border-right:none;border-bottom:1px solid #E0E8F5}
   .stat-item:last-child{border-bottom:none}
-  .topbar-countdown{gap:1px}
-  .countdown-block{min-width:24px;padding:1px 4px}
-  .countdown-num{font-size:13px}
-  .topbar-cta{padding:4px 9px;font-size:10.5px}
+  .cidades-grid{grid-template-columns:1fr}
+  .sva-title,.movel-title{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 
 /* ===== SVA APPS ===== */
@@ -449,26 +524,6 @@ img{max-width:100%;display:block}
 .movel-btn:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
 .movel-card.featured .movel-btn{background:var(--teal);border-color:var(--teal)}
 .movel-card.featured .movel-btn:hover{background:#009dc0;border-color:#009dc0}
-@media(max-width:768px){
-  .sva-section{padding:64px 0}
-  .sva-inner{padding:0 20px}
-  .sva-title{font-size:28px}
-  .sva-sub{font-size:15px}
-  .sva-header{margin-bottom:40px}
-  .sva-cards{flex-direction:column;align-items:center;gap:16px}
-  .sva-card-wrap{width:100%}
-  .sva-card{width:100%;padding:28px 20px}
-  .sva-card-wrap.sva-floating{animation:none!important}
-  .sva-cta{margin-top:40px}
-  .movel-section{padding:64px 0}
-  .movel-inner{padding:0 20px}
-  .movel-title{font-size:28px}
-  .movel-sub{font-size:15px}
-  .movel-header{margin-bottom:36px}
-  .movel-cards{flex-direction:column;align-items:center;gap:20px}
-  .movel-card{width:100%;max-width:100%}
-  .movel-data{font-size:48px}
-}
 </style>
 </head>
 <body>
@@ -513,12 +568,8 @@ img{max-width:100%;display:block}
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Fibra Óptica 100% — Rio de Janeiro
-        </div>
         <h1 class="hero-title">A INTERNET QUE<br>O RIO MERECE<br><span class="accent">+ TV INCLUSA!</span></h1>
-        <p class="hero-sub">Conexão estável, velocidade real e pacote de TV em todos os planos. Valor fixo — sem surpresas na fatura.</p>
+        <p class="hero-sub">Velocidade real + TV inclusa em todos os planos. Valor fixo, sem surpresas.</p>
         <div class="hero-btns">
           <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20contratar%20um%20plano%20Intel%20Fiber." class="btn-primary" target="_blank">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -536,12 +587,8 @@ img{max-width:100%;display:block}
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Ultra Velocidade — Até 1 GIGA
-        </div>
         <h1 class="hero-title">INTERNET PARA<br>QUEM EXIGE<br><span class="accent">O MELHOR!</span></h1>
-        <p class="hero-sub">Streaming, jogos online, home office — tudo fluindo sem travar. Fibra óptica real com velocidade que você vai sentir na prática.</p>
+        <p class="hero-sub">Streaming, jogos, home office — fibra real sem travar. Sinta a diferença.</p>
         <div class="hero-btns">
           <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20contratar%20um%20plano%20Intel%20Fiber." class="btn-primary" target="_blank">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -579,7 +626,7 @@ img{max-width:100%;display:block}
       Cobertura
     </div>
     <h2 class="via-section-title">Tem Intel Fiber<br><span class="accent">na sua rua?</span></h2>
-    <p class="via-section-sub">Digite seu endereço e descubra em segundos. Se tiver cobertura, você já escolhe o plano e fala com um consultor direto pelo WhatsApp.</p>
+    <p class="via-section-sub">Descubra agora se atendemos o seu endereço.</p>
     <a class="btn-via" href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20consultar%20a%20viabilidade%20da%20Intel%20Fiber%20na%20minha%20rua." target="_blank">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Consultar Viabilidade
@@ -591,8 +638,8 @@ img{max-width:100%;display:block}
 <section class="stats">
   <div class="stats-grid">
     <div class="stat-item reveal reveal-delay-1">
-      <div class="stat-number"><span class="stat-val" data-target="5000">0</span><span class="stat-suffix">+</span></div>
-      <div class="stat-label">Clientes Ativos</div>
+      <div class="stat-number"><span class="stat-val" data-target="4">0</span><span class="stat-suffix">★</span></div>
+      <div class="stat-label">Bairros Atendidos</div>
     </div>
     <div class="stat-item reveal reveal-delay-2">
       <div class="stat-number"><span class="stat-val" data-target="99">0</span><span class="stat-suffix">%</span></div>
@@ -713,7 +760,7 @@ img{max-width:100%;display:block}
     <div class="sva-header reveal">
       <div class="sva-label">Apps inclusos</div>
       <h2 class="sva-title">STREAMING & APPS<br><span style="color:var(--teal)">NO SEU PLANO</span></h2>
-      <p class="sva-sub">Contrate a Intel Fiber e ganhe acesso a plataformas de entretenimento premium sem custo extra na sua assinatura.</p>
+      <p class="sva-sub">Streaming premium incluído. Sem taxa extra.</p>
     </div>
     <div class="sva-cards">
       <div class="sva-card-wrap">
@@ -759,7 +806,7 @@ img{max-width:100%;display:block}
         Telefonia Móvel
       </div>
       <h2 class="movel-title">INTERNET MÓVEL<br><span style="color:var(--teal)">INTEL FIBER</span></h2>
-      <p class="movel-sub">Conectividade total onde você estiver. WhatsApp ilimitado, Waze e muito mais incluso em todos os planos.</p>
+      <p class="movel-sub">WhatsApp ilimitado + Waze incluso. Conecte onde estiver.</p>
     </div>
     <div class="movel-cards">
       <div class="movel-card reveal reveal-delay-1">
@@ -827,7 +874,7 @@ img{max-width:100%;display:block}
     <div class="about-content reveal from-right">
       <div class="section-label">Quem somos</div>
       <h2 class="about-title">EQUIPE LOCAL.<br><span class="accent">RESULTADO REAL.</span></h2>
-      <p class="about-text">Somos um provedor 100% carioca, com time próprio e comprometido. Fibra óptica de verdade, preço fixo e atendimento rápido quando você precisar.</p>
+      <p class="about-text">Provedor 100% carioca. Fibra real, preço fixo e suporte quando você precisar.</p>
       <div class="about-items">
         <div class="about-item">
           <div class="about-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></div>
@@ -924,33 +971,70 @@ img{max-width:100%;display:block}
     <div class="section-label">Depoimentos</div>
     <h2 class="section-title">O QUE NOSSOS<br><span class="accent">CLIENTES FALAM</span></h2>
   </div>
-  <div class="depoimentos-grid">
-    <div class="depo-card reveal reveal-delay-1">
-      <div class="depo-quote">"</div>
-      <p class="depo-text">Contratei há 8 meses e o preço continua o mesmo. Internet rápida, sem quedas. Nunca precisei ligar pro suporte porque nunca tive problema!</p>
-      <div class="depo-stars">★★★★★</div>
-      <div class="depo-author">
-        <div class="depo-avatar">M</div>
-        <div><div class="depo-name">Marcos Oliveira</div><div class="depo-city">Cliente Intel Fiber — Centro</div></div>
+  <div class="depo-carousel-wrap">
+    <div class="depo-track">
+      <div class="depo-card">
+        <div class="depo-quote">"</div>
+        <p class="depo-text">8 meses de Intel Fiber e o preço não mudou. Internet rápida, sem quedas. Nunca precisei chamar o suporte!</p>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="https://i.pravatar.cc/80?img=3" alt="Marcos Oliveira" loading="lazy"></div>
+          <div><div class="depo-name">Marcos Oliveira</div><div class="depo-city">Centro, Rio de Janeiro</div></div>
+        </div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-quote">"</div>
+        <p class="depo-text">Instalação rápida, técnico atencioso. A TV inclusa no plano foi um diferencial — não pago separado por nada!</p>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="https://i.pravatar.cc/80?img=5" alt="Ana Paula Souza" loading="lazy"></div>
+          <div><div class="depo-name">Ana Paula Souza</div><div class="depo-city">Gamboa, Rio de Janeiro</div></div>
+        </div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-quote">"</div>
+        <p class="depo-text">Home office perfeito com a Intel Fiber. Estabilidade total, nunca cai, preço fixo. Melhor decisão que tomei.</p>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="https://i.pravatar.cc/80?img=8" alt="Ricardo Santos" loading="lazy"></div>
+          <div><div class="depo-name">Ricardo Santos</div><div class="depo-city">Santo Cristo, Rio de Janeiro</div></div>
+        </div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-quote">"</div>
+        <p class="depo-text">Troquei meu provedor antigo e foi a melhor decisão. Velocidade real e sinal que nunca cai no meu bairro.</p>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="https://i.pravatar.cc/80?img=10" alt="Juliana Ferreira" loading="lazy"></div>
+          <div><div class="depo-name">Juliana Ferreira</div><div class="depo-city">Praça da Bandeira, RJ</div></div>
+        </div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-quote">"</div>
+        <p class="depo-text">Atendimento incrível, instalação no mesmo dia. Recomendo pra todo mundo aqui do Centro!</p>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="https://i.pravatar.cc/80?img=12" alt="Carlos Mendes" loading="lazy"></div>
+          <div><div class="depo-name">Carlos Mendes</div><div class="depo-city">Centro, Rio de Janeiro</div></div>
+        </div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-quote">"</div>
+        <p class="depo-text">O Deezer incluso no plano foi a cereja do bolo. Uso direto no celular sem gastar minha franquia de dados.</p>
+        <div class="depo-stars">★★★★★</div>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="https://i.pravatar.cc/80?img=20" alt="Fernanda Lima" loading="lazy"></div>
+          <div><div class="depo-name">Fernanda Lima</div><div class="depo-city">Gamboa, Rio de Janeiro</div></div>
+        </div>
       </div>
     </div>
-    <div class="depo-card reveal reveal-delay-2">
-      <div class="depo-quote">"</div>
-      <p class="depo-text">A instalação foi super rápida e o técnico foi muito atencioso. A TV inclusa no plano foi um diferencial enorme — não precisei pagar separado!</p>
-      <div class="depo-stars">★★★★★</div>
-      <div class="depo-author">
-        <div class="depo-avatar">A</div>
-        <div><div class="depo-name">Ana Paula Souza</div><div class="depo-city">Cliente Intel Fiber — Gamboa</div></div>
-      </div>
-    </div>
-    <div class="depo-card reveal reveal-delay-3">
-      <div class="depo-quote">"</div>
-      <p class="depo-text">Trabalho home office e a estabilidade é perfeita. Recomendo para quem precisa de internet de verdade sem pagar caro.</p>
-      <div class="depo-stars">★★★★★</div>
-      <div class="depo-author">
-        <div class="depo-avatar">R</div>
-        <div><div class="depo-name">Ricardo Santos</div><div class="depo-city">Cliente Intel Fiber — Santo Cristo</div></div>
-      </div>
+    <div class="depo-dots">
+      <button class="depo-dot active" aria-label="Depoimento 1"></button>
+      <button class="depo-dot" aria-label="Depoimento 2"></button>
+      <button class="depo-dot" aria-label="Depoimento 3"></button>
+      <button class="depo-dot" aria-label="Depoimento 4"></button>
+      <button class="depo-dot" aria-label="Depoimento 5"></button>
+      <button class="depo-dot" aria-label="Depoimento 6"></button>
     </div>
   </div>
 </section>
@@ -988,32 +1072,22 @@ img{max-width:100%;display:block}
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Intel Fiber" style="height:40px;width:auto;filter:drop-shadow(0 0 6px rgba(0,180,216,.3));margin-bottom:8px">
-        <p class="footer-tagline">Internet fibra óptica de verdade no Rio de Janeiro. Valor fixo, TV inclusa e suporte 24h.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Planos</h4>
-        <ul>
-          <li><a href="#planos">START 400 MB — R$99,00</a></li>
-          <li><a href="#planos">ADVANCED 500 MB — R$129,00</a></li>
-          <li><a href="#planos">MASTER 600 MB — R$159,00</a></li>
-          <li><a href="#planos">PREMIUM 800 MB — R$219,00</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Contato</h4>
-        <ul>
-          <li><a href="https://api.whatsapp.com/send?phone=552130481714" target="_blank">WhatsApp (21) 3048-1714</a></li>
-          <li><a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20consultar%20a%20viabilidade%20da%20Intel%20Fiber%20na%20minha%20rua." target="_blank">Consultar Viabilidade</a></li>
-          <li><a href="#">Central do Assinante</a></li>
-        </ul>
-      </div>
+    <div class="footer-logo-wrap">
+      <img src="logo.png" alt="Intel Fiber" style="height:44px;width:auto">
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Intel Fiber. Todos os direitos reservados. Rio de Janeiro — RJ.</div>
+    <p class="footer-tagline">Fibra óptica real no Centro do Rio de Janeiro.<br>Valor fixo, sem surpresas.</p>
+    <div class="footer-btns">
+      <a href="https://www.instagram.com/intel.fiber/" target="_blank" class="footer-btn footer-btn-ig">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @intel.fiber
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=552130481714&text=Olá!%20Quero%20contratar%20a%20Intel%20Fiber." target="_blank" class="footer-btn footer-btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        (21) 3048-1714
+      </a>
     </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 Intel Fiber · Rio de Janeiro, RJ · Todos os direitos reservados.</p>
   </div>
 </footer>
 
@@ -1118,6 +1192,38 @@ function mostrarPlanos(){
 function escolherPlano(s,p,btn){document.querySelectorAll('.via-plan-btn').forEach(b=>b.style.pointerEvents='none');btn.classList.add('pick');viaData.plano=s+' — '+p+'/mês';viaStep=3;usuarioDiz(s+' — '+p+'/mês');botDiz('Ótima escolha! Me diz o seu <strong>nome completo</strong>:',800,()=>mostrarInput('Seu nome','text'))}
 function finalizarChat(){showTyping();setTimeout(()=>{hideTyping();const r=document.createElement('div');r.className='via-row';r.innerHTML=`<div class="via-bot-ava"><img src="logo.png" alt="IF"></div><div class="via-bubble bot">Perfeito, <strong>${viaData.nome}</strong>! 🎉 Clica no botão abaixo para confirmar sua contratação:</div>`;document.getElementById('viaMsgs').appendChild(r);const msg=`Olá! Me chamo *${viaData.nome}*, moro em *${viaData.endereco}* e quero contratar o plano *${viaData.plano}* da Intel Fiber. Meu WhatsApp: ${viaData.tel}.`;const url=`https://api.whatsapp.com/send?phone=552130481714&text=${encodeURIComponent(msg)}`;const bw=document.createElement('div');bw.style.cssText='padding:4px 14px 4px 47px';bw.innerHTML=`<a href="${url}" target="_blank" class="via-wa-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Confirmar contratação no WhatsApp</a>`;document.getElementById('viaMsgs').appendChild(bw);scrollChat()},900)}
 function scrollChat(){const e=document.getElementById('viaMsgs');setTimeout(()=>{e.scrollTop=e.scrollHeight},60)}
+
+/* DEPOIMENTOS CAROUSEL */
+(function(){
+  const wrap=document.querySelector('.depo-carousel-wrap');
+  if(!wrap)return;
+  const track=wrap.querySelector('.depo-track');
+  const cards=Array.from(track.querySelectorAll('.depo-card'));
+  const dots=Array.from(wrap.querySelectorAll('.depo-dot'));
+  let cur=0,timer;
+  function vis(){return window.innerWidth<=768?1:3}
+  function maxI(){return Math.max(0,cards.length-vis())}
+  function goTo(n){
+    n=Math.max(0,Math.min(n,maxI()));
+    cur=n;
+    const w=cards[0].offsetWidth+24;
+    track.style.transform='translateX(-'+(cur*w)+'px)';
+    dots.forEach((d,i)=>d.classList.toggle('active',i===cur));
+  }
+  function next(){goTo(cur>=maxI()?0:cur+1)}
+  function start(){timer=setInterval(next,4500)}
+  function stop(){clearInterval(timer)}
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{goTo(i);stop();start()}));
+  let sx=0;
+  track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;stop()},{passive:true});
+  track.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>40)dx<0?next():goTo(cur-1);
+    start();
+  },{passive:true});
+  window.addEventListener('resize',()=>goTo(cur));
+  start();
+})();
 </script>
 </body>
 </html>
